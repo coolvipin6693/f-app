@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+</head>
+<body>
+
+<div data-role="page" id="pageone">
+
+    <div data-role="panel" id="myPanel" data-display="overlay">
+        <h2>Freepy</h2>
+        <ul>
+            <li>My Account</li>
+            <li>Transactions</li>
+            <li>FAQs</li>
+            <li>About Us</li>
+            <li>Logout</li>
+        </ul>
+    </div>
+
+    <div data-role="header" data-position="fixed">
+        <h1>Freepy</h1>
+        <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Open Panel</a>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <p>Welcome!</p>
+        <a href="#mobiletariffplans" class="ui-btn ui-icon-search ui-btn-icon-left" data-transition="slidedown">Check Tariff Plans</a>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+        <h1>Copyrights@ Freepy Payment Solutions</h1>
+    </div>
+</div>
+
+<div data-role="page" data-dialog="true" id="mobiletariffplans">
+    <div data-role="header">
+        <h1>Tariff Plans</h1>
+    </div>
+
+    <div data-role="main" class="ui-content">
+        <p>The dialog box is different from a normal page, it is displayed on top of the current page and it will not span the entire width of the page. The dialog has also an icon of "X" in the header to close the box.</p>
+    </div>
+
+</div>
+
+
+</body>
+</html>
