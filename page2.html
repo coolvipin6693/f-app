@@ -8,26 +8,6 @@
     <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
     <!--<script src="purl.js"></script>-->
     <script type="text/javascript" src="jquery.cookie.js"></script>
-
-    <!--<script type = "text/javascript">-->
-        <!--function showDetails(){-->
-            <!--var number = $.cookie("abc");-->
-            <!--$("#transaction-summary").html(number);-->
-<!--//            document.getElementById("transation-summary").innerHTML = "ABCD";-->
-        <!--}-->
-<!--//        $( document ).ready(function() {-->
-<!--//            console.log("enter page 2" + $.cookie("abc"));-->
-<!--//            var number = $.cookie("abc");-->
-<!--//            $("#transaction-summary").html("page 2 " + number);-->
-<!--//        });-->
-    <!--</script>-->
-
-    <script>
-        $(document).on('pagebeforeshow', '#page2',function () {
-            var number = $.cookie("abc");
-            $("#transaction-summary").html(number);
-        });
-    </script>
 </head>
 
 
@@ -37,11 +17,11 @@
         <div data-role = "header" data-theme = "b">
             <h1>Transaction Summary</h1>
         </div>
-        <div data-role = "content">
-            <div id = "transaction-summary">
 
-            </div>
+        <div data-role = "content">
+
         </div>
+
     </div>
 </body>
 </html>

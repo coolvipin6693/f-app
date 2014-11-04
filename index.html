@@ -3,35 +3,70 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
+    <link rel="stylesheet" type="text/css" href="custom.css">
     <script type = "text/javascript" charset = "utf-8" src = "cordova-2.2.0.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
     <!--<script src="purl.js"></script>-->
     <script type="text/javascript" src="jquery.cookie.js"></script>
 
-    <!--<script type = "text/javascript">-->
-        <!--function onBodyLoad(){-->
-            <!--document.addEventListener("deviceready", PhonegapLoaded, false);-->
-        <!--}-->
-        <!--function PhonegapLoaded(){-->
-            <!--$('#phoneList').children().each(function(){-->
-                <!--var anchor = $(this).find('a');-->
-                <!--if(anchor){-->
-                    <!--anchor.click(function(){-->
-                        <!--document.getElementById("selecteditem").innerHTML = "You have selected"+anchor.attr('id');-->
-                    <!--});-->
-                <!--}-->
-            <!--});-->
-        <!--}-->
-    <!--</script>-->
     <script type = "text/javascript">
         function dispData(){
             var datainfo = '';
-            datainfo = document.getElementById("mobile-number").value;
-            $.cookie("abc", datainfo);
-            console.log($.cookie("abc"));
+            datainfo1 = document.getElementById("mobile-number").value;
+            datainfo2 = document.getElementById("select-choice-operator").value;
+            datainfo3 = document.getElementById("select-choice-circle").value;
+            datainfo4 = document.getElementById("recharge-amount").value;
+            $.cookie("num", datainfo1);
+            $.cookie("op", datainfo2);
+            $.cookie("circle", datainfo3);
+            $.cookie("amt", datainfo4);
+            $("#tabs").hide();
+            $("#checktariffbtn").hide();
+            $("#response").show();
+            document.getElementById("summary").innerHTML = '<h1>' + "Transaction Summary" + '</h1>' + '<br>' + "Number : " + datainfo1 + '<br>' + "Operator : " + datainfo2 + '<br>' + "Circle : " + datainfo3 + '<br>' + "Amount : " + datainfo4 + '<br>' + "To change," +  '<input type = "button" id = "goback" name = "goback" value = "Go back" onclick="toggleData()"/>';
         }
     </script>
+    <script type = "text/javascript">
+        function dispDataDTH(){
+            var datainfo = '';
+            datainfo1 = document.getElementById("dth-number").value;
+            datainfo2 = document.getElementById("select-choice-operator-dth").value;
+            datainfo3 = document.getElementById("recharge-amount-dth").value;
+            $.cookie("num", datainfo1);
+            $.cookie("op", datainfo2);
+            $.cookie("amt", datainfo3);
+            $("#tabs").hide();
+            $("#checktariffbtn").hide();
+            $("#response").show();
+            document.getElementById("summary").innerHTML = '<h1>' + "Transaction Summary" + '</h1>' + '<br>' + "Number : " + datainfo1 + '<br>' + "Operator : " + datainfo2 + '<br>' + "Amount : " + datainfo3 + '<br>' + "To change," +  '<input type = "button" id = "goback" name = "goback" value = "Go back" onclick="toggleData()"/>';
+        }
+    </script>
+    <script type = "text/javascript">
+        function dispDataDatacard(){
+            var datainfo = '';
+            datainfo1 = document.getElementById("datacard-number").value;
+            datainfo2 = document.getElementById("select-choice-operator-datacard").value;
+            datainfo3 = document.getElementById("select-choice-circle-datacard").value;
+            datainfo4 = document.getElementById("recharge-amount-datacard").value;
+            $.cookie("num", datainfo1);
+            $.cookie("op", datainfo2);
+            $.cookie("circle", datainfo3);
+            $.cookie("amt", datainfo4);
+            $("#tabs").hide();
+            $("#checktariffbtn").hide();
+            $("#response").show();
+            document.getElementById("summary").innerHTML = '<h1>' + "Transaction Summary" + '</h1>' + '<br>' + "Number : " + datainfo1 + '<br>' + "Operator : " + datainfo2 + '<br>' + "Circle : " + datainfo3 + '<br>' + "Amount : " + datainfo4 + '<br>' + "To change," +  '<input type = "button" id = "goback" name = "goback" value = "Go back" onclick="toggleData()"/>';
+        }
+    </script>
+    <script type = "text/javascript">
+        function toggleData(){
+            $("#response").hide();
+            $("#tabs").show();
+            $("#checktariffbtn").show();
+        }
+    </script>
+
     <script>
         $(document).on('pagebeforeshow', '#page2',function () {
             var number = $.cookie("abc");
@@ -81,7 +116,6 @@
 
 </head>
 
-<!--<body onload = "onBodyLoad()">-->
 <body>
 <div data-role="page" id="pageone">
 
@@ -98,7 +132,10 @@
 
     <div data-role="header" data-position="fixed">
         <h1>Freepy</h1>
-        <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Open Panel</a>
+        <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">
+            Open Panel
+        </a>
+        <a href="#myPanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext">Bars Icon</a>
     </div>
 
     <div data-role="tabs" id="tabs">
@@ -110,19 +147,6 @@
                 <li><a href="#datacard" data-ajax="false">Data Card</a></li>
             </ul>
         </div>
-
-        <!--<ul id = "phoneList" data-role = "listview">-->
-            <!--<li><a id = "1111111111" href = "#page2">1111111111</a></li>-->
-            <!--<li><a id = "2222222222" href = "#page2">2222222222</a></li>-->
-            <!--<li><a id = "3333333333" href = "#page2">3333333333</a></li>-->
-            <!--<li><a id = "4444444444" href = "#page2">4444444444</a></li>-->
-            <!--<li><a id = "5555555555" href = "#page2">5555555555</a></li>-->
-            <!--<li><a id = "6666666666" href = "#page2">6666666666</a></li>-->
-            <!--<li><a id = "7777777777" href = "#page2">7777777777</a></li>-->
-            <!--<li><a id = "8888888888" href = "#page2">8888888888</a></li>-->
-            <!--<li><a id = "9999999999" href = "#page2">9999999999</a></li>-->
-            <!--<li><a id = "1111122222" href = "#page2">1111122222</a></li>-->
-        <!--</ul>-->
 
         <div id="pre-mob">
             <form>
@@ -178,8 +202,8 @@
             </select>
             <!--<label for="text-basic">Amount</label>-->
             <input type="text" name="recharge-amount" id="recharge-amount" value="" placeholder="Enter Recharge Amount" data-clear-btn="true">
-             <!--<input type = "button" id = "submit" name = "submit" value = "Proceed" onclick="dispData()"/>-->
-             <a href="page2.html" id="submit" class="ui-btn" onclick="dispData()">Proceed</a>
+             <input type = "button" id = "submit" name = "submit" value = "Proceed" onclick="dispData()"/>
+             <!--<a href="page2.html" id="submit" class="ui-btn" onclick="dispData()">Proceed</a>-->
              </form>
         </div>
 
@@ -188,54 +212,16 @@
             <input type="text" name="dth-number" id="dth-number" value="" placeholder="Enter DTH Number" data-clear-btn="true">
             <!--<label for="select-choice-1" class="select">Select Operator</label>-->
             <select name="select-choice-operator-dth" id="select-choice-operator-dth">
-                <option value="Airtel">Airtel</option>
-                <option value="Vodafone">Vodafone</option>
-                <option value="Idea">Idea</option>
-                <option value="Tata Docomo GSM">Tata Docomo GSM</option>
-                <option value="Tata Docomo CDMA">Tata Docomo CDMA</option>
-                <option value="Reliance GSM">Reliance GSM</option>
-                <option value="Reliance CDMA">Reliance CDMA</option>
-                <option value="Uninor">Uninor</option>
-                <option value="Aircel">Aircel</option>
-                <option value="MTS">MTS</option>
-                <option value="Loop Mobile">Loop Mobile</option>
-                <option value="Videocon">Videocon</option>
-                <option value="BSNL">BSNL</option>
-                <option value="MTNL Delhi">MTNL Delhi</option>
-                <option value="MTNL Mumbai">MTNL Mumbai</option>
-                <option value="Tata Walky Prepaid">Tata Walky Prepaid</option>
-                <option value="Virgin GSM">Virgin GSM</option>
-                <option value="Virgin CDMA">Virgin CDMA</option>
-                <option value="T24">T24</option>
-            </select>
-            <select name="select-choice-circle-dth" id="select-choice-circle-dth">
-                <option value="Andhra Pradesh">Andhra Pradesh</option>
-                <option value="Assam">Assam</option>
-                <option value="Bihar">Bihar</option>
-                <option value="Chennai">Chennai</option>
-                <option value="Delhi NCR">Delhi NCR</option>
-                <option value="Gujrat">Gujrat</option>
-                <option value="Haryana">Haryana</option>
-                <option value="Himachal Pradesh">Himachal Pradesh</option>
-                <option value="Jammu & Kashmir">Jammu & Kashmir</option>
-                <option value="Karnataka">Karnataka</option>
-                <option value="Kerala">Kerala</option>
-                <option value="Kolkata">Kolkata</option>
-                <option value="Mumbai">Mumbai</option>
-                <option value="North East">North East</option>
-                <option value="Orissa">Orissa</option>
-                <option value="Punjab">Punjab</option>
-                <option value="Rajasthan">Rajasthan</option>
-                <option value="Tamil Nadu">Tamil Nadu</option>
-                <option value="Uttar Pradesh(East)">Uttar Pradesh(East)</option>
-                <option value="Kerala">Kerala</option>
-                <option value="Madhya Pradesh & Chhattisgarh">Madhya Pradesh & Chhattisgarh</option>
-                <option value="Maharashtra & Goa">Maharashtra & Goa</option>
-                <option value="Uttar Pradesh(West) & Uttarkhand">Uttar Pradesh(West) & Uttarkhand</option>
-                <option value="West Bengal & Andaman Nicobar">West Bengal & Andaman Nicobar</option>
+                <option value="Videocon DTH">Videocon DTH</option>
+                <option value="Sun DTH">Sun DTH</option>
+                <option value="Big TV DTH">Big TV DTH</option>
+                <option value="Tata Sky">Tata Sky</option>
+                <option value="Airtel TV">Airtel TV</option>
+                <option value="Dish TV">Dish TV</option>
             </select>
             <!--<label for="text-basic">Amount</label>-->
-            <input type="text" name="recharge-amount" id="recharge-amount" value="" placeholder="Enter Recharge Amount" data-clear-btn="true">
+            <input type="text" name="recharge-amount-dth" id="recharge-amount-dth" value="" placeholder="Enter Recharge Amount" data-clear-btn="true">
+            <input type = "button" id = "submit-dth" name = "submit-dth" value = "Proceed" onclick="dispDataDTH()"/>
         </div>
 
         <div id="datacard">
@@ -243,25 +229,18 @@
             <input type="text" name="datacard-number" id="datacard-number" value="" placeholder="Enter Prepaid DataCard Number" data-clear-btn="true">
             <!--<label for="select-choice-1" class="select">Select Operator</label>-->
             <select name="select-choice-operator-datacard" id="select-choice-operator-datacard">
-                <option value="Airtel">Airtel</option>
-                <option value="Vodafone">Vodafone</option>
-                <option value="Idea">Idea</option>
-                <option value="Tata Docomo GSM">Tata Docomo GSM</option>
-                <option value="Tata Docomo CDMA">Tata Docomo CDMA</option>
-                <option value="Reliance GSM">Reliance GSM</option>
-                <option value="Reliance CDMA">Reliance CDMA</option>
-                <option value="Uninor">Uninor</option>
-                <option value="Aircel">Aircel</option>
-                <option value="MTS">MTS</option>
-                <option value="Loop Mobile">Loop Mobile</option>
-                <option value="Videocon">Videocon</option>
-                <option value="BSNL">BSNL</option>
-                <option value="MTNL Delhi">MTNL Delhi</option>
-                <option value="MTNL Mumbai">MTNL Mumbai</option>
-                <option value="Tata Walky Prepaid">Tata Walky Prepaid</option>
-                <option value="Virgin GSM">Virgin GSM</option>
-                <option value="Virgin CDMA">Virgin CDMA</option>
-                <option value="T24">T24</option>
+                <option value="MTS MBrowse">MTS MBrowse</option>
+                <option value="MTS MBlaze">MTS MBlaze</option>
+                <option value="Reliance NetConnect 1X">Reliance NetConnect 1X</option>
+                <option value="Reliance NetConnect +">Reliance NetConnect +</option>
+                <option value="Reliance NetConnect 3G">Reliance NetConnect 3G</option>
+                <option value="Tata Photon Whiz">Tata Photon Whiz</option>
+                <option value="Tata Photon +">Tata Photon +</option>
+                <option value="MTNL Delhi Datacard">MTNL Delhi Datacard</option>
+                <option value="MTNL Mumbai Datacard">MTNL Mumbai Datacard</option>
+                <option value="Vodafone 3G">Vodafone 3G</option>
+                <option value="Aircel Pocket Internet">Aircel Pocket Internet</option>
+                <option value="BSNL Datacard">BSNL Datacard</option>
             </select>
             <select name="select-choice-circle-datacard" id="select-choice-circle-datacard">
                 <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -290,15 +269,18 @@
                 <option value="West Bengal & Andaman Nicobar">West Bengal & Andaman Nicobar</option>
             </select>
             <!--<label for="text-basic">Amount</label>-->
-            <input type="text" name="recharge-amount" id="recharge-amount" value="" placeholder="Enter Recharge Amount" data-clear-btn="true">
+            <input type="text" name="recharge-amount-datacard" id="recharge-amount-datacard" value="" placeholder="Enter Recharge Amount" data-clear-btn="true">
+            <input type = "button" id = "submit-datacard" name = "submit-datacard" value = "Proceed" onclick="dispDataDatacard()"/>
         </div>
 
     </div>
 
     <div data-role="main" class="ui-content">
-        <a href="#mobiletariffplans" class="ui-btn ui-icon-search ui-btn-icon-left" data-transition="slidedown">Check Tariff Plans</a>
+        <a href="#mobiletariffplans" class="ui-btn ui-icon-search ui-btn-icon-left" data-transition="slidedown" id="checktariffbtn">Check Tariff Plans</a>
         <div id = "response">
+            <div id="summary">
 
+            </div>
         </div>
     </div>
 
