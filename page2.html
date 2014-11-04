@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
+    <script type = "text/javascript" charset = "utf-8" src = "cordova-2.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+    <!--<script src="purl.js"></script>-->
+    <script type="text/javascript" src="jquery.cookie.js"></script>
+
+    <!--<script type = "text/javascript">-->
+        <!--function showDetails(){-->
+            <!--var number = $.cookie("abc");-->
+            <!--$("#transaction-summary").html(number);-->
+<!--//            document.getElementById("transation-summary").innerHTML = "ABCD";-->
+        <!--}-->
+<!--//        $( document ).ready(function() {-->
+<!--//            console.log("enter page 2" + $.cookie("abc"));-->
+<!--//            var number = $.cookie("abc");-->
+<!--//            $("#transaction-summary").html("page 2 " + number);-->
+<!--//        });-->
+    <!--</script>-->
+
+    <script>
+        $(document).on('pagebeforeshow', '#page2',function () {
+            var number = $.cookie("abc");
+            $("#transaction-summary").html(number);
+        });
+    </script>
+</head>
+
+
+<body>
+    <div data-role = "page" id = "page2" data-add-back-btn = "true">
+
+        <div data-role = "header" data-theme = "b">
+            <h1>Transaction Summary</h1>
+        </div>
+        <div data-role = "content">
+            <div id = "transaction-summary">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
