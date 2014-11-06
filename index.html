@@ -7,7 +7,6 @@
     <script type = "text/javascript" charset = "utf-8" src = "cordova-2.2.0.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
-    <!--<script src="purl.js"></script>-->
     <script type="text/javascript" src="jquery.cookie.js"></script>
 
     <script type = "text/javascript">
@@ -24,7 +23,7 @@
             $("#tabs").hide();
             $("#checktariffbtn").hide();
             $("#response").show();
-            document.getElementById("summary").innerHTML = '<h1>' + "Transaction Summary" + '</h1>' + '<br>' + "Number : " + datainfo1 + '<br>' + "Operator : " + datainfo2 + '<br>' + "Circle : " + datainfo3 + '<br>' + "Amount : " + datainfo4 + '<br>' + "To change," +  '<input type = "button" id = "goback" name = "goback" value = "Go back" onclick="toggleData()"/>';
+            document.getElementById("summary").innerHTML = '<h1>' + "Transaction Summary" + '</h1>' + '<br>' + "Number : " + datainfo1 + '<br>' + "Operator : " + datainfo2 + '<br>' + "Circle : " + datainfo3 + '<br>' + "Amount : " + datainfo4 + '<br>' + "To change," +'<input type = "button" id = "goback" name = "goback" value = "Go back" onclick="toggleData()"/>' + '<a href="page2.html" class="ui-btn" data-transition="slide" id="proceedtopay">Proceed To Pay</a>';
         }
     </script>
     <script type = "text/javascript">
@@ -39,7 +38,7 @@
             $("#tabs").hide();
             $("#checktariffbtn").hide();
             $("#response").show();
-            document.getElementById("summary").innerHTML = '<h1>' + "Transaction Summary" + '</h1>' + '<br>' + "Number : " + datainfo1 + '<br>' + "Operator : " + datainfo2 + '<br>' + "Amount : " + datainfo3 + '<br>' + "To change," +  '<input type = "button" id = "goback" name = "goback" value = "Go back" onclick="toggleData()"/>';
+            document.getElementById("summary").innerHTML = '<h1>' + "Transaction Summary" + '</h1>' + '<br>' + "Number : " + datainfo1 + '<br>' + "Operator : " + datainfo2 + '<br>' + "Amount : " + datainfo3 + '<br>' + "To change," +  '<input type = "button" id = "goback" name = "goback" value = "Go back" onclick="toggleData()"/>'+  '<a href="page2.html" class="ui-btn" data-transition="slide" id="proceedtopay">Proceed To Pay</a>';
         }
     </script>
     <script type = "text/javascript">
@@ -56,7 +55,7 @@
             $("#tabs").hide();
             $("#checktariffbtn").hide();
             $("#response").show();
-            document.getElementById("summary").innerHTML = '<h1>' + "Transaction Summary" + '</h1>' + '<br>' + "Number : " + datainfo1 + '<br>' + "Operator : " + datainfo2 + '<br>' + "Circle : " + datainfo3 + '<br>' + "Amount : " + datainfo4 + '<br>' + "To change," +  '<input type = "button" id = "goback" name = "goback" value = "Go back" onclick="toggleData()"/>';
+            document.getElementById("summary").innerHTML = '<h1>' + "Transaction Summary" + '</h1>' + '<br>' + "Number : " + datainfo1 + '<br>' + "Operator : " + datainfo2 + '<br>' + "Circle : " + datainfo3 + '<br>' + "Amount : " + datainfo4 + '<br>' + "To change," +  '<input type = "button" id = "goback" name = "goback" value = "Go back" onclick="toggleData()"/>'+  '<a href="page2.html" class="ui-btn" data-transition="slide" id="proceedtopay">Proceed To Pay</a>';
         }
     </script>
     <script type = "text/javascript">
@@ -80,7 +79,7 @@
         {   ele = document.getElementById("mobile-number")
             if(ele.value.length == 10){
                 res = ele.value.substr(0, 4);
-                url = "http://www.freepy.in/numberinfo_api.json?initials="+res;
+                url = "http://localhost:3000/numberinfo_api.json?initials="+res;
                 var AJAX_req = new XMLHttpRequest();
                 AJAX_req.open( "GET", url, true );
                 AJAX_req.setRequestHeader("Content-type", "application/json");
@@ -88,6 +87,7 @@
                     var operator_name_element = document.getElementById("select-choice-operator");
                     var circle_name_element = document.getElementById("select-choice-circle");
                     if( AJAX_req.readyState == 4 && AJAX_req.status == 200 ){
+//                        console.log("Hey!");
                         var response = JSON.parse( AJAX_req.responseText );
                         for(var j = 0;j < circle_name_element.length;j++){
                             if(circle_name_element.options[j].innerText.toLowerCase() == response[0].circle.toLowerCase()){
@@ -105,7 +105,7 @@
                                 operator_name_element.selectedIndex = j;
                             }
                         }
-//                        operator_change()
+////                        operator_change()
                     }
                 }
                 AJAX_req.send();
@@ -132,9 +132,6 @@
 
     <div data-role="header" data-position="fixed">
         <h1>Freepy</h1>
-        <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">
-            Open Panel
-        </a>
         <a href="#myPanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext">Bars Icon</a>
     </div>
 
@@ -151,7 +148,7 @@
         <div id="pre-mob">
             <form>
             <!--<label for="text-basic">Mobile Number</label>-->
-            <input type="text" name="mobile-number" id="mobile-number" value="" placeholder="Enter Mobile Number" data-clear-btn="true">
+            <input type="text" name="mobile-number" id="mobile-number" value="" placeholder="Enter Mobile Number" data-clear-btn="true" onblur="myfunc()">
             <!--<label for="select-choice-1" class="select">Select Operator</label>-->
             <select name="select-choice-operator" id="select-choice-operator">
                 <option value="Airtel">Airtel</option>

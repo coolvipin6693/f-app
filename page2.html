@@ -3,25 +3,36 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
+    <link rel="stylesheet" type="text/css" href="custom.css">
     <script type = "text/javascript" charset = "utf-8" src = "cordova-2.2.0.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
-    <!--<script src="purl.js"></script>-->
     <script type="text/javascript" src="jquery.cookie.js"></script>
 </head>
 
-
 <body>
-    <div data-role = "page" id = "page2" data-add-back-btn = "true">
 
-        <div data-role = "header" data-theme = "b">
-            <h1>Transaction Summary</h1>
+    <div data-role="page" id="page2">
+        <div data-role="header" data-position="fixed">
+            <h1>Freepy</h1>
+            <!--<a href="#myPanel" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext">Bars Icon</a>-->
         </div>
 
-        <div data-role = "content">
+        <div data-role="main" class="ui-content">
+            <div class="btn1">Sign In</div>
+            <br/><br/>
+            <div class="btn2">Sign Up</div>
+            <br/>
+            <hr>
+            <br/>
+            <div class="btn3">Proceed as Guest</div>
+        </div>
 
+        <div data-role="footer" data-position="fixed">
+            <h1>Copyrights@ Freepy Payment Solutions</h1>
         </div>
 
     </div>
+
 </body>
 </html>
