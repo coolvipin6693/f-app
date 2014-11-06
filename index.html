@@ -79,7 +79,7 @@
         {   ele = document.getElementById("mobile-number")
             if(ele.value.length == 10){
                 res = ele.value.substr(0, 4);
-                url = "http://localhost:3000/numberinfo_api.json?initials="+res;
+                url = "http://www.freepy.in/numberinfo_api.json?initials="+res;
                 var AJAX_req = new XMLHttpRequest();
                 AJAX_req.open( "GET", url, true );
                 AJAX_req.setRequestHeader("Content-type", "application/json");
